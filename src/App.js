@@ -10,7 +10,7 @@ import LikeButton from './Components/LikeButton';
 function App() {
   const [imgUrl, setImgUrl] = useState('');
 
-  const ROOT_API_URL = "https://apod-deploy.vercel.app";
+  const ROOT_API_URL = "backend/";
   
   // 
   useEffect(() => {
