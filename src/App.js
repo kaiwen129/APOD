@@ -27,14 +27,17 @@ function App() {
   const [token, setToken] = useState(localStorage.getItem('token'));
 
   useEffect(() => {
-    window.google.accounts.id.initialize({
-      client_id: CLIENT_ID,
-      callback: handleGoogleLogin
-    });
-    window.google.accounts.id.renderButton(
-      document.getElementById("googleLoginDiv"),
-      { theme: "outline", size: "medium"}
-    );
+    window.onload = function() {
+      // Your code that uses the 'accounts' property
+      window.google.accounts.id.initialize({
+        client_id: CLIENT_ID,
+        callback: handleGoogleLogin
+      });
+      window.google.accounts.id.renderButton(
+        document.getElementById("googleLoginDiv"),
+        { theme: "outline", size: "medium"}
+      );
+    };
   }, []);
 
   useEffect(() => {
