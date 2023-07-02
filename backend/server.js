@@ -1,7 +1,6 @@
 const { MongoClient } = require('mongodb')
 const mongoose = require("mongoose");
 const express = require('express');
-const bcrypt = require('bcrypt');
 
 const app = express();
 app.use(express.json());
