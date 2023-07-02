@@ -12,7 +12,6 @@ function App() {
 
   const ROOT_API_URL = "https://apod-deploy-api.vercel.app";
   
-  // 
   useEffect(() => {
     axios.get('https://api.nasa.gov/planetary/apod?api_key=qvA7gFAo5laiF8ywDALxTGioR1qy4at5jqYx1iC7')
       .then(res => {
@@ -41,9 +40,7 @@ function App() {
   }, []);
 
   useEffect(() => {
-    console.log(token);
     if (token){
-      //setLoginSuccess(true);
       axios.get(`${ROOT_API_URL}/stats`, {
         headers: {
           Authorization: token,
@@ -57,7 +54,6 @@ function App() {
         .catch(error => {
           setLoginSuccess(false);
           console.error(error); // Handle the error
-          console.log('asdff' + loginSuccess);
         });
     }
   }, []);
@@ -199,14 +195,12 @@ function App() {
   const [dateJoined, setDateJoined] = useState(Date.now);
 
   const getStats = () => {
-    console.log('hi');
     axios.get(`${ROOT_API_URL}/stats`, {
       headers: {
         Authorization: token,
       },
     })
       .then(res => {
-        console.log('hello');
         setNumLikes(res.data.likeCount);
         setDateJoined(res.data.joinDate.slice(0, 10));
         console.log(res.data); // Handle the response data
